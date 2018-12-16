@@ -33,7 +33,11 @@ app.get("/GetOffset/:datcat", (req, res, next) => {
 
     res.setHeader('Content-Type', 'application/json');
     category.index1.GetOffsetPath(req.query.path, function (error, fileOffset) {
-      if (error) return next(error);
+      if (error) {
+        res.status(404);
+        res.send(JSON.stringify({ dataVersion: version, result: { path: req.query.path, offset: -1 } }));
+        return next(error);
+      }
 
       return res.send(JSON.stringify({ dataVersion: version, result: { path: req.query.path, offset: fileOffset } }));
     });
@@ -52,12 +56,11 @@ app.post("/GetOffset/:datcat", (req, res, next) => {
       if (error) return next(error);
 
       category.index1.GetOffsetPath(element, function (error, fileOffset) {
-        if (error)
-        {
+        if (error) {
           offsets[element] = -1;
           return next(error);
         }
-  
+
         offsets[element] = fileOffset;
       });
     });
