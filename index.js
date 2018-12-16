@@ -52,7 +52,11 @@ app.post("/GetOffset/:datcat", (req, res, next) => {
       if (error) return next(error);
 
       category.index1.GetOffsetPath(element, function (error, fileOffset) {
-        if (error) return next(error);
+        if (error)
+        {
+          offsets[element] = -1;
+          return next(error);
+        }
   
         offsets[element] = fileOffset;
       });
