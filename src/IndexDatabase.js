@@ -49,6 +49,9 @@ class IndexDatabase {
   }
 
   GetCat(cat, version, callback) {
+    // We only want the ID
+    cat = cat.substr(0, 2);
+
     if (!this._versions[version])
       return callback(new Error(
         'No version matching '
