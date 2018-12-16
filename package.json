@@ -1,0 +1,25 @@
+{
+  "name": "textools-api",
+  "version": "1.0.0",
+  "description": "API for FFXIV game data offsets and hashes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goaaats/textools-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goaaats/textools-api/issues"
+  },
+  "homepage": "https://github.com/goaaats/textools-api#readme",
+  "dependencies": {
+    "binutils": "^0.1.0",
+    "express": "^4.16.4",
+    "fs-readdir-recursive": "^1.1.0",
+    "readdir-absolute": "^1.0.1"
+  }
+}
